@@ -1,0 +1,9 @@
+# Training
+python train.py --name doc1 --dataset document -i data/smartdocData_DocTrainC/ -v data/selfDataDocumentTrainFinal --output-dir weights/document --lr 0.05 --schedule 20 30 35 --batch-size 16 --model-type resnet
+python train.py --name doc1 --dataset corner -i data/smartdocData_DocTrainC/ -v data/selfDataDocumentTrainFinal --output-dir weights/corner --lr 0.05 --schedule 20 30 35 --batch-size 16 --model-type resnet
+
+# Test (image)
+python demo.py -i data/test -o output -dm weights/doc1_1/doc1document_resnet.pb --outputPath output --reportPath output/report_regression.csv
+
+# Test (video)
+python demo.py -iv data/single.mp4 -o output -dm weights/doc1_1/doc1document_resnet.pb --outputPath output
